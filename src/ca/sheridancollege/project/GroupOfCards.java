@@ -2,8 +2,8 @@
  * SYST 17796 Project Base code.
  * Students can modify and extend to implement their game.
  * Add your name as an author and the date!
- * @author Harnoor Kaur Gill and Mehakdeep Kaur 
- * @date 18th february 2023
+ * @author by Harnoor Kaur Gill and Mehakdeep Kaur
+ * @date 5thApril,2024
  */
 package ca.sheridancollege.project;
 
@@ -11,16 +11,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * A concrete class that represents any grouping of cards for a Game. HINT, you might want to subclass this more than
- * once. The group of cards has a maximum size attribute which is flexible for reuse.
+ * A concrete class that represents any grouping of cards for a Game. 
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
+ * 
  */
 public class GroupOfCards {
 
     //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
+    public ArrayList<Card> cards;
     private int size;//the size of the grouping
 
     public GroupOfCards(int size) {
@@ -32,28 +30,10 @@ public class GroupOfCards {
      *
      * @return the group of cards.
      */
-    
-    /** generating a new array for the group of cards **/
-    public GroupOfCards()
-    {
-        this.cards = new ArrayList<>();
-        generateGroupOfCards();
-        
-    }
-    /**  generating the deck of 52 cards**/ 
-    public void generateGroupOfCards()
-    {
-        for (Card.Suit suitCard : Card.Suit.values())
-        {
-            for ( Card.Value cardValue : Card.Value.values()){
-                this.cards.add(new Card( cardValue, suitCard ));
-            }
-        }
-    }
     public ArrayList<Card> getCards() {
         return cards;
     }
-/** method for shuffling the cards  **/
+
     public void shuffle() {
         Collections.shuffle(cards);
     }
@@ -72,5 +52,25 @@ public class GroupOfCards {
         this.size = size;
     }
 
-}//end class
+    public GroupOfCards()
+    {
+        this.cards = new ArrayList<>();
+        generateGroupOfCards();
+        
+    }
+    /**  generating the deck of 52 cards**/ 
+    public void generateGroupOfCards()
+    {
+        for (Card.Suit suitCard : Card.Suit.values())
+        {
+            for ( Card.Value cardValue : Card.Value.values()){
+                this.cards.add(new Card( cardValue, suitCard ));
+            }
+        }
+    }
+   
+
     
+    
+}
+//end class
