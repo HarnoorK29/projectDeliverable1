@@ -1,76 +1,71 @@
-    /**
-     * SYST 17796 Project Base code.
-     * Students can modify and extend to implement their game.
-     * Add your name as an author and the date!
-     *  @author Harnoor Kaur Gill and Mehakdeep Kaur 
-    * @date 18th february 2023
-     */
-    package ca.sheridancollege.project;
-    import java.util.Scanner;
-    import java.util.ArrayList;
-    /**
-     * A class that models each Player in the game. Players have an identifier, which should be unique.
-     *
-     * @author dancye
-     * @author Paul Bonenfant Jan 2020
-     */
-    public abstract class Player {
+/**
+ * SYST 17796 Project Base code.
+ * Students can modify and extend to implement their game.
+ * Add your name as an author and the date!
+ * @author by Harnoor Kaur Gill and Mehakdeep Kaur
+ * @date 5thApril,2024
+ */
+package ca.sheridancollege.project;
+import java.util.ArrayList;
+/**
+ * A class that models each Player in the game. 
+ * Players have an identifier, which should be unique.
+ *it validates the player and the money they have to play the game.
+ *
+ * 
+ */
+public  class Player extends CardHandGenerator  {
 
-        private String name; 
+    private String name;
+     
         private long id ;
         private double money ;
       ArrayList<String>  player_hand = new ArrayList<>();
-        ArrayList<String>  dealer_hand = new ArrayList<>();
-    //the unique name for this player
+        ArrayList<String>  dealer_hand = new ArrayList<>();//the unique name for this player
 
-        /**
-         * A constructor that allows you to set the player's unique ID
-         * 
-         * 
-         *
-         * @param name the unique ID to assign to this player.
-         * 
-         * 
-         */
-
-        public Player(String name , long id , double Money ) {
+    /**
+     * A constructor that allows you to set the player's unique ID
+     *
+     * @param name the unique ID to assign to this player.
+     */
+    public Player(String name , long id , double Money ) {
             this.name = name;
             this.id = id;
             this.money =Money;
 
         }
 
-        /**
-         * @return the player name
-         */
-        public String getName() {
-            return name;
-        }
+    /**
+     * @return the player name
+     */
+    public String getName() {
+        return name;
+    }
 
-        /**
-         * Ensure that the playerID is unique
-         *
-         * @param name the player name to set
-         */
+    /**
+     * Ensure that the playerID is unique
+     *
+     * @param name the player name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public long getId()
-        {
-            return id ;
-        }
-        public double getMoney()
-        {
-            return money;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        /**
-         * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-         * with logic to play your game.
-         */
-        public /*abstract*/ void play()
-        {Scanner sc = new Scanner(System.in);
+    /**
+     * This method validates the player and the dealer and checks whether they have sufficient money to play the game or not .
+     */
+    public   void play()
+            
+            
+    {
+        
+        int value = 0;
+        
+        
+        Card[] dealerhand = CardHandGenerator.generateHand(5);
+        Card[] playerhand = CardHandGenerator.generateHand(5);
+         
+        Scanner sc = new Scanner(System.in);
             System.out.println("please enter your name:");
             String userName = sc.nextLine();
             System.out.println("Please enter your password:");
@@ -101,6 +96,11 @@
             }
 
         }
+            /**
+             * this method displays the status of the user  by displaying name and money 
+          *
+            */
+            
             public void displayStatus()
             {
                 System.out.println("PlayerName" + name);
@@ -109,4 +109,4 @@
         }
     };
 
-    
+}
